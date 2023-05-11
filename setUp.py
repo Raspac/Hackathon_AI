@@ -15,5 +15,12 @@ def get_response(question):
     message = completions.choices[0].text.strip()
     return message
 
+question1 = "Fait moi un qcm sur les HashMap en java en suivant le modèle suivant :  Question | Réponse 1 | Réponse 2 | Réponse 3 ?"
 
-print(get_response("Fait moi un qcm sur les HashMap en java en suivant le modèle suivant :  Question | Réponse 1 | Réponse 2 | Réponse 3 ?"))
+retQuestion1 = get_response(question1)
+
+print(retQuestion1)
+
+repQuestion1 = "Quelle est la réponse à la question suivant :" + retQuestion1
+
+print(repQuestion1)
