@@ -21,8 +21,30 @@ retQuestion1 = get_response(question1)
 
 print(retQuestion1)
 
-repQuestion1 = "Quelle est la réponse à la question suivant :" + retQuestion1
+questions_and_answers = []
+
+for line in retQuestion1.splitlines():
+    if "|" in line:
+        question, *answers = line.split(" | ")
+        questions_and_answers.append([question, answers])
+
+
+repQuestion1 = "Quelle est la réponse à la question suivante :" + retQuestion1
+
+
 
 repQuestion1 = get_response(repQuestion1)
 
 print(repQuestion1)
+
+trueAnswers = []
+
+for line in repQuestion1.splitlines():
+    substring = line.split(". ", 1)[1]
+    for i in range(len(questions_and_answers)):
+        for j in range(len(questions_and_answers[i][1])):
+            if(questions_and_answers[i][1][j] == substring):
+                trueAnswers.append(j+1)
+
+
+
