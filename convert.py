@@ -1,7 +1,7 @@
 import convertapi
 import os
 
-convertapi.api_secret = "97H6ER6YCoJnqSjx"
+convertapi.api_secret = "your_key"
 
 file_path = "C:\\Users\\jacqu\\OneDrive\\Documents\\certificat_de_scolarité_22-23.pdf"
 
