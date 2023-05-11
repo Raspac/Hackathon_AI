@@ -3,7 +3,7 @@ import openai
 
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 openai.Model.list()
 
 
@@ -15,12 +15,14 @@ def get_response(question):
     message = completions.choices[0].text.strip()
     return message
 
-question1 = "Fait moi un qcm sur les HashMap en java en suivant le modèle suivant :  Question | Réponse 1 | Réponse 2 | Réponse 3 ?"
+question1 = "Fait moi un qcm en 10 questions sur les HashMap en java en suivant le modèle suivant :  Question | Réponse 1 | Réponse 2 | Réponse 3 ?"
 
 retQuestion1 = get_response(question1)
 
 print(retQuestion1)
 
 repQuestion1 = "Quelle est la réponse à la question suivant :" + retQuestion1
+
+repQuestion1 = get_response(repQuestion1)
 
 print(repQuestion1)
