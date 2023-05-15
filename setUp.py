@@ -12,39 +12,10 @@ import tkinter
 from tkinter import filedialog
 import os
 import openai
-import convertapi
-import os
-
-convertapi.api_secret = "ij6BwlSogPwnfRwu"
-
-file_path = "C:\\Users\\caspa\\Desktop\\LE TAF\\L3 EFREI\\Semestre 6\\UE - INFORMATIQUE\Advanced Databases - TI603I\\Project\\project-session2.pdf"
-
-new_file_path = "C:\Users\caspa\PycharmProjects\MLproject\Hackathon_AI\temp"
-
-result = convertapi.convert(
-    'txt', # the format you want to convert to
-    { 'File': file_path}
-).save_files(new_file_path)
-
-# Open the file in 'read' mode ('r')
-with open(new_file_path, 'r') as file:
-    # Read the entire contents of the file
-    content = file.read()
-
-# Print the contents of the file
-
-try:
-    os.remove(new_file_path)
-    print(f"The file '{new_file_path}' has been deleted.")
-except FileNotFoundError:
-    print(f"The file '{new_file_path}' does not exist.")
-except PermissionError:
-    print(f"You do not have permission to delete the file '{new_file_path}'.")
-except Exception as e:
-    print(f"An error occurred while deleting the file: {str(e)}")
 
 
-openai.api_key = "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"
+
+openai.api_key = "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"
 openai.Model.list()
 
 
@@ -56,7 +27,7 @@ def get_response(question):
     message = completions.choices[0].text.strip()
     return message
 
-question1 = "Fait moi un qcm en 10 questions en suivant le modèle suivant :  Question | Réponse 1 | Réponse 2 | Réponse 3 ? sur le thème suivant :" + content
+question1 = "Fait moi un qcm en 10 questions sur les HashMap en java en suivant le modèle suivant :  Question | Réponse 1 | Réponse 2 | Réponse 3 ?"
 
 retQuestion1 = get_response(question1)
 
@@ -71,8 +42,6 @@ for line in retQuestion1.splitlines():
 
 
 repQuestion1 = "Quelle est la réponse à la question suivante :" + retQuestion1
-
-
 
 repQuestion1 = get_response(repQuestion1)
 
@@ -191,7 +160,7 @@ for q in questions_and_answers:
         except:
             pass
 
-
+browse_pdf(lastDir)
 while True:
     menu = True
     while menu:
@@ -213,12 +182,11 @@ while True:
                 for b in buttons:
                     if b.isOver(pygame.mouse.get_pos()):
                         b.validate()
-        """
+
         if my >= screen.get_height()-10:
-            button._t -= 3
+            button._t -= 10
         elif my <= 10:
-            button._t += 3
-        """
+            button._t += 10
 
 
         pygame.display.update()
